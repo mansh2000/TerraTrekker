@@ -6,7 +6,7 @@ const Razorpay = require('razorpay');
 const paymentModel = require('../model/payment.model');
 const razorpay = new Razorpay({
   key_id: 'rzp_test_CtOaODOHIvu9ZL',
-  key_secret: 'qB5GUuywsOI0RJ7gA4lfcIKI'
+  key_secret: environment.razorpaysecretkey
 });
 const addPayment = async (req) => {
   const { amount, userName, email, bankName } = req.body;
