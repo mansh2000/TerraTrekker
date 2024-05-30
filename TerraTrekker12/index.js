@@ -9,9 +9,10 @@ const { server } = require('./services/socket.service');
 app.use(bodyParser.json());
 const port = 8000;
 const environment = require('./config/environment');
-
-mongoose.connect(environment.mongodbUri, 
-).then(() => {
+console.log("mongodburi",environment.mongodbUri)
+mongoose.connect(environment.mongodbUri)
+.then(() => {
+    
     console.log("database connected");
 }).catch((err) => {
     console.log(err.message);
