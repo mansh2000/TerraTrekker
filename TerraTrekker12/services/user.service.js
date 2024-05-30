@@ -2,10 +2,8 @@ const userModel = require('../model/user.model');
 const bcrypt = require('bcrypt');
 const ApiError = require('../utils/ApiError');
 const httpStatus = require('http-status');
-//const logger=require('../config/logger');
 const saltOrRounds = 10;
 const createUser = async (req) => {
-    //logger.info(`userBody data ======>`, req.body);
     if(await userModel.isEmailTaken(req.body.email)) {
       throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
     }
