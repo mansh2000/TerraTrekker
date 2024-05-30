@@ -52,34 +52,12 @@ const paginate = async (userModel, req) => {
     throw new Error('Failed to paginate users: ' + error.message);
   }
 };
-// const changePassword = async (req) => {
-//   try {
-//     const { currentPassword, newPassword, confirmPassword, userType } = req.body;
-//     const userId = req.user;
-//     const user = userType === 'user' ? await User.findOne({ _id: userId }) : await Driver.findOne({ _id: userId });
-//     if (!user) {
-//       throw new ApiError(httpStatus.BAD_REQUEST, 'user not found');
-//     }
-//     if (!(await user.isPasswordMatch(currentPassword))) {
-//       throw new ApiError(httpStatus.BAD_REQUEST, 'Current password does not match');
-//     }
-//     if (newPassword !== confirmPassword) {
-//       throw new ApiError(httpStatus.BAD_REQUEST, 'New password and confirm password do not match');
-//     }
-//     const updatedUser =
-//       userType === 'user'
-//         ? await userService.updateUserById(userId, { password: newPassword })
-//         : await driverService.updateDriverById(userId, { password: newPassword });
-//     return updatedUser;
-//   } catch (err) {
-//     throw new ApiError(httpStatus.BAD_REQUEST, err.message);
-//   }
-// };
+
 module.exports = {
   createUser,
   loginUser,
   getUserByEmail,
   logout,
   paginate,
-  //changePassword
+  
 };
